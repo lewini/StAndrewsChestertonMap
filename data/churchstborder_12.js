@@ -1,0 +1,1 @@
+var json_churchstborder_12 = {"type":"FeatureCollection","name":"churchstborder_12","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":null},"geometry":{"type":"MultiLineString","coordinates":[[[0.139820410053169,52.215783279077513],[0.140075058412159,52.215627258461801]]]}}]}
