@@ -32,16 +32,17 @@
         <script src="js/labels.js"></script>
         <script src="data/TeaselsArea_1.js"></script>
         <script src="data/wimbledon_2.js"></script>
-        <script src="data/warmemorial_3.js"></script>
-        <script src="data/Graves_4.js"></script>
-        <script src="data/vassa_5.js"></script>
-        <script src="data/Trees_6.js"></script>
-        <script src="data/ShadedUncutArea_7.js"></script>
-        <script src="data/springmeadow_8.js"></script>
-        <script src="data/mainpath_9.js"></script>
-        <script src="data/CompostArea_10.js"></script>
-        <script src="data/churchstborder_11.js"></script>
-        <script src="data/summermeadow2023_12.js"></script>
+        <script src="data/Path_3.js"></script>
+        <script src="data/warmemorial_4.js"></script>
+        <script src="data/Graves_5.js"></script>
+        <script src="data/vassa_6.js"></script>
+        <script src="data/Trees_7.js"></script>
+        <script src="data/ShadedUncutArea_8.js"></script>
+        <script src="data/springmeadow_9.js"></script>
+        <script src="data/mainpath_10.js"></script>
+        <script src="data/CompostArea_11.js"></script>
+        <script src="data/churchstborder_12.js"></script>
+        <script src="data/summermeadow2023_13.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -180,7 +181,49 @@
         });
         bounds_group.addLayer(layer_wimbledon_2);
         map.addLayer(layer_wimbledon_2);
-        function pop_warmemorial_3(feature, layer) {
+        function pop_Path_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Path_3_0() {
+            return {
+                pane: 'pane_Path_3',
+                opacity: 1,
+                color: 'rgba(219,30,42,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Path_3');
+        map.getPane('pane_Path_3').style.zIndex = 403;
+        map.getPane('pane_Path_3').style['mix-blend-mode'] = 'normal';
+        var layer_Path_3 = new L.geoJson(json_Path_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Path_3',
+            layerName: 'layer_Path_3',
+            pane: 'pane_Path_3',
+            onEachFeature: pop_Path_3,
+            style: style_Path_3_0,
+        });
+        bounds_group.addLayer(layer_Path_3);
+        map.addLayer(layer_Path_3);
+        function pop_warmemorial_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -195,20 +238,18 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Mowing</th>\
-                        <td>' + (feature.properties['Mowing'] !== null ? autolinker.link(feature.properties['Mowing'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Mowing'] !== null ? autolinker.link(feature.properties['Mowing'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_warmemorial_3_0() {
+        function style_warmemorial_4_0() {
             return {
-                pane: 'pane_warmemorial_3',
+                pane: 'pane_warmemorial_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -221,21 +262,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_warmemorial_3');
-        map.getPane('pane_warmemorial_3').style.zIndex = 403;
-        map.getPane('pane_warmemorial_3').style['mix-blend-mode'] = 'normal';
-        var layer_warmemorial_3 = new L.geoJson(json_warmemorial_3, {
+        map.createPane('pane_warmemorial_4');
+        map.getPane('pane_warmemorial_4').style.zIndex = 404;
+        map.getPane('pane_warmemorial_4').style['mix-blend-mode'] = 'normal';
+        var layer_warmemorial_4 = new L.geoJson(json_warmemorial_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_warmemorial_3',
-            layerName: 'layer_warmemorial_3',
-            pane: 'pane_warmemorial_3',
-            onEachFeature: pop_warmemorial_3,
-            style: style_warmemorial_3_0,
+            dataVar: 'json_warmemorial_4',
+            layerName: 'layer_warmemorial_4',
+            pane: 'pane_warmemorial_4',
+            onEachFeature: pop_warmemorial_4,
+            style: style_warmemorial_4_0,
         });
-        bounds_group.addLayer(layer_warmemorial_3);
-        map.addLayer(layer_warmemorial_3);
-        function pop_Graves_4(feature, layer) {
+        bounds_group.addLayer(layer_warmemorial_4);
+        map.addLayer(layer_warmemorial_4);
+        function pop_Graves_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -256,9 +297,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Graves_4_0() {
+        function style_Graves_5_0() {
             return {
-                pane: 'pane_Graves_4',
+                pane: 'pane_Graves_5',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -268,27 +309,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Graves_4');
-        map.getPane('pane_Graves_4').style.zIndex = 404;
-        map.getPane('pane_Graves_4').style['mix-blend-mode'] = 'normal';
-        var layer_Graves_4 = new L.geoJson(json_Graves_4, {
+        map.createPane('pane_Graves_5');
+        map.getPane('pane_Graves_5').style.zIndex = 405;
+        map.getPane('pane_Graves_5').style['mix-blend-mode'] = 'normal';
+        var layer_Graves_5 = new L.geoJson(json_Graves_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Graves_4',
-            layerName: 'layer_Graves_4',
-            pane: 'pane_Graves_4',
-            onEachFeature: pop_Graves_4,
+            dataVar: 'json_Graves_5',
+            layerName: 'layer_Graves_5',
+            pane: 'pane_Graves_5',
+            onEachFeature: pop_Graves_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Graves_4_0(feature));
+                return L.marker(latlng, style_Graves_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Graves_4);
-        map.addLayer(layer_Graves_4);
-        function pop_vassa_5(feature, layer) {
+        bounds_group.addLayer(layer_Graves_5);
+        map.addLayer(layer_Graves_5);
+        function pop_vassa_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -303,20 +344,18 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">hyperlink</th>\
-                        <td>' + (feature.properties['hyperlink'] !== null ? autolinker.link(feature.properties['hyperlink'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['hyperlink'] !== null ? autolinker.link(feature.properties['hyperlink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_vassa_5_0() {
+        function style_vassa_6_0() {
             return {
-                pane: 'pane_vassa_5',
+                pane: 'pane_vassa_6',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -326,27 +365,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_vassa_5');
-        map.getPane('pane_vassa_5').style.zIndex = 405;
-        map.getPane('pane_vassa_5').style['mix-blend-mode'] = 'normal';
-        var layer_vassa_5 = new L.geoJson(json_vassa_5, {
+        map.createPane('pane_vassa_6');
+        map.getPane('pane_vassa_6').style.zIndex = 406;
+        map.getPane('pane_vassa_6').style['mix-blend-mode'] = 'normal';
+        var layer_vassa_6 = new L.geoJson(json_vassa_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_vassa_5',
-            layerName: 'layer_vassa_5',
-            pane: 'pane_vassa_5',
-            onEachFeature: pop_vassa_5,
+            dataVar: 'json_vassa_6',
+            layerName: 'layer_vassa_6',
+            pane: 'pane_vassa_6',
+            onEachFeature: pop_vassa_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_vassa_5_0(feature));
+                return L.marker(latlng, style_vassa_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_vassa_5);
-        map.addLayer(layer_vassa_5);
-        function pop_Trees_6(feature, layer) {
+        bounds_group.addLayer(layer_vassa_6);
+        map.addLayer(layer_vassa_6);
+        function pop_Trees_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -367,9 +406,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Trees_6_0() {
+        function style_Trees_7_0() {
             return {
-                pane: 'pane_Trees_6',
+                pane: 'pane_Trees_7',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -379,27 +418,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Trees_6');
-        map.getPane('pane_Trees_6').style.zIndex = 406;
-        map.getPane('pane_Trees_6').style['mix-blend-mode'] = 'normal';
-        var layer_Trees_6 = new L.geoJson(json_Trees_6, {
+        map.createPane('pane_Trees_7');
+        map.getPane('pane_Trees_7').style.zIndex = 407;
+        map.getPane('pane_Trees_7').style['mix-blend-mode'] = 'normal';
+        var layer_Trees_7 = new L.geoJson(json_Trees_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Trees_6',
-            layerName: 'layer_Trees_6',
-            pane: 'pane_Trees_6',
-            onEachFeature: pop_Trees_6,
+            dataVar: 'json_Trees_7',
+            layerName: 'layer_Trees_7',
+            pane: 'pane_Trees_7',
+            onEachFeature: pop_Trees_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Trees_6_0(feature));
+                return L.marker(latlng, style_Trees_7_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Trees_6);
-        map.addLayer(layer_Trees_6);
-        function pop_ShadedUncutArea_7(feature, layer) {
+        bounds_group.addLayer(layer_Trees_7);
+        map.addLayer(layer_Trees_7);
+        function pop_ShadedUncutArea_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -425,9 +464,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ShadedUncutArea_7_0() {
+        function style_ShadedUncutArea_8_0() {
             return {
-                pane: 'pane_ShadedUncutArea_7',
+                pane: 'pane_ShadedUncutArea_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -440,21 +479,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ShadedUncutArea_7');
-        map.getPane('pane_ShadedUncutArea_7').style.zIndex = 407;
-        map.getPane('pane_ShadedUncutArea_7').style['mix-blend-mode'] = 'normal';
-        var layer_ShadedUncutArea_7 = new L.geoJson(json_ShadedUncutArea_7, {
+        map.createPane('pane_ShadedUncutArea_8');
+        map.getPane('pane_ShadedUncutArea_8').style.zIndex = 408;
+        map.getPane('pane_ShadedUncutArea_8').style['mix-blend-mode'] = 'normal';
+        var layer_ShadedUncutArea_8 = new L.geoJson(json_ShadedUncutArea_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ShadedUncutArea_7',
-            layerName: 'layer_ShadedUncutArea_7',
-            pane: 'pane_ShadedUncutArea_7',
-            onEachFeature: pop_ShadedUncutArea_7,
-            style: style_ShadedUncutArea_7_0,
+            dataVar: 'json_ShadedUncutArea_8',
+            layerName: 'layer_ShadedUncutArea_8',
+            pane: 'pane_ShadedUncutArea_8',
+            onEachFeature: pop_ShadedUncutArea_8,
+            style: style_ShadedUncutArea_8_0,
         });
-        bounds_group.addLayer(layer_ShadedUncutArea_7);
-        map.addLayer(layer_ShadedUncutArea_7);
-        function pop_springmeadow_8(feature, layer) {
+        bounds_group.addLayer(layer_ShadedUncutArea_8);
+        map.addLayer(layer_ShadedUncutArea_8);
+        function pop_springmeadow_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -480,9 +519,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_springmeadow_8_0() {
+        function style_springmeadow_9_0() {
             return {
-                pane: 'pane_springmeadow_8',
+                pane: 'pane_springmeadow_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -495,21 +534,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_springmeadow_8');
-        map.getPane('pane_springmeadow_8').style.zIndex = 408;
-        map.getPane('pane_springmeadow_8').style['mix-blend-mode'] = 'normal';
-        var layer_springmeadow_8 = new L.geoJson(json_springmeadow_8, {
+        map.createPane('pane_springmeadow_9');
+        map.getPane('pane_springmeadow_9').style.zIndex = 409;
+        map.getPane('pane_springmeadow_9').style['mix-blend-mode'] = 'normal';
+        var layer_springmeadow_9 = new L.geoJson(json_springmeadow_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_springmeadow_8',
-            layerName: 'layer_springmeadow_8',
-            pane: 'pane_springmeadow_8',
-            onEachFeature: pop_springmeadow_8,
-            style: style_springmeadow_8_0,
+            dataVar: 'json_springmeadow_9',
+            layerName: 'layer_springmeadow_9',
+            pane: 'pane_springmeadow_9',
+            onEachFeature: pop_springmeadow_9,
+            style: style_springmeadow_9_0,
         });
-        bounds_group.addLayer(layer_springmeadow_8);
-        map.addLayer(layer_springmeadow_8);
-        function pop_mainpath_9(feature, layer) {
+        bounds_group.addLayer(layer_springmeadow_9);
+        map.addLayer(layer_springmeadow_9);
+        function pop_mainpath_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -535,9 +574,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_mainpath_9_0() {
+        function style_mainpath_10_0() {
             return {
-                pane: 'pane_mainpath_9',
+                pane: 'pane_mainpath_10',
                 opacity: 1,
                 color: 'rgba(219,30,42,1.0)',
                 dashArray: '',
@@ -548,21 +587,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_mainpath_9');
-        map.getPane('pane_mainpath_9').style.zIndex = 409;
-        map.getPane('pane_mainpath_9').style['mix-blend-mode'] = 'normal';
-        var layer_mainpath_9 = new L.geoJson(json_mainpath_9, {
+        map.createPane('pane_mainpath_10');
+        map.getPane('pane_mainpath_10').style.zIndex = 410;
+        map.getPane('pane_mainpath_10').style['mix-blend-mode'] = 'normal';
+        var layer_mainpath_10 = new L.geoJson(json_mainpath_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_mainpath_9',
-            layerName: 'layer_mainpath_9',
-            pane: 'pane_mainpath_9',
-            onEachFeature: pop_mainpath_9,
-            style: style_mainpath_9_0,
+            dataVar: 'json_mainpath_10',
+            layerName: 'layer_mainpath_10',
+            pane: 'pane_mainpath_10',
+            onEachFeature: pop_mainpath_10,
+            style: style_mainpath_10_0,
         });
-        bounds_group.addLayer(layer_mainpath_9);
-        map.addLayer(layer_mainpath_9);
-        function pop_CompostArea_10(feature, layer) {
+        bounds_group.addLayer(layer_mainpath_10);
+        map.addLayer(layer_mainpath_10);
+        function pop_CompostArea_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -583,9 +622,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_CompostArea_10_0() {
+        function style_CompostArea_11_0() {
             return {
-                pane: 'pane_CompostArea_10',
+                pane: 'pane_CompostArea_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -598,20 +637,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_CompostArea_10');
-        map.getPane('pane_CompostArea_10').style.zIndex = 410;
-        map.getPane('pane_CompostArea_10').style['mix-blend-mode'] = 'normal';
-        var layer_CompostArea_10 = new L.geoJson(json_CompostArea_10, {
+        map.createPane('pane_CompostArea_11');
+        map.getPane('pane_CompostArea_11').style.zIndex = 411;
+        map.getPane('pane_CompostArea_11').style['mix-blend-mode'] = 'normal';
+        var layer_CompostArea_11 = new L.geoJson(json_CompostArea_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CompostArea_10',
-            layerName: 'layer_CompostArea_10',
-            pane: 'pane_CompostArea_10',
-            onEachFeature: pop_CompostArea_10,
-            style: style_CompostArea_10_0,
+            dataVar: 'json_CompostArea_11',
+            layerName: 'layer_CompostArea_11',
+            pane: 'pane_CompostArea_11',
+            onEachFeature: pop_CompostArea_11,
+            style: style_CompostArea_11_0,
         });
-        bounds_group.addLayer(layer_CompostArea_10);
-        function pop_churchstborder_11(feature, layer) {
+        bounds_group.addLayer(layer_CompostArea_11);
+        function pop_churchstborder_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -626,15 +665,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_churchstborder_11_0() {
+        function style_churchstborder_12_0() {
             return {
-                pane: 'pane_churchstborder_11',
+                pane: 'pane_churchstborder_12',
                 opacity: 1,
                 color: 'rgba(72,123,182,1.0)',
                 dashArray: '',
@@ -645,21 +685,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_churchstborder_11');
-        map.getPane('pane_churchstborder_11').style.zIndex = 411;
-        map.getPane('pane_churchstborder_11').style['mix-blend-mode'] = 'normal';
-        var layer_churchstborder_11 = new L.geoJson(json_churchstborder_11, {
+        map.createPane('pane_churchstborder_12');
+        map.getPane('pane_churchstborder_12').style.zIndex = 412;
+        map.getPane('pane_churchstborder_12').style['mix-blend-mode'] = 'normal';
+        var layer_churchstborder_12 = new L.geoJson(json_churchstborder_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_churchstborder_11',
-            layerName: 'layer_churchstborder_11',
-            pane: 'pane_churchstborder_11',
-            onEachFeature: pop_churchstborder_11,
-            style: style_churchstborder_11_0,
+            dataVar: 'json_churchstborder_12',
+            layerName: 'layer_churchstborder_12',
+            pane: 'pane_churchstborder_12',
+            onEachFeature: pop_churchstborder_12,
+            style: style_churchstborder_12_0,
         });
-        bounds_group.addLayer(layer_churchstborder_11);
-        map.addLayer(layer_churchstborder_11);
-        function pop_summermeadow2023_12(feature, layer) {
+        bounds_group.addLayer(layer_churchstborder_12);
+        map.addLayer(layer_churchstborder_12);
+        function pop_summermeadow2023_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -685,9 +725,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_summermeadow2023_12_0() {
+        function style_summermeadow2023_13_0() {
             return {
-                pane: 'pane_summermeadow2023_12',
+                pane: 'pane_summermeadow2023_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -700,20 +740,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_summermeadow2023_12');
-        map.getPane('pane_summermeadow2023_12').style.zIndex = 412;
-        map.getPane('pane_summermeadow2023_12').style['mix-blend-mode'] = 'normal';
-        var layer_summermeadow2023_12 = new L.geoJson(json_summermeadow2023_12, {
+        map.createPane('pane_summermeadow2023_13');
+        map.getPane('pane_summermeadow2023_13').style.zIndex = 413;
+        map.getPane('pane_summermeadow2023_13').style['mix-blend-mode'] = 'normal';
+        var layer_summermeadow2023_13 = new L.geoJson(json_summermeadow2023_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_summermeadow2023_12',
-            layerName: 'layer_summermeadow2023_12',
-            pane: 'pane_summermeadow2023_12',
-            onEachFeature: pop_summermeadow2023_12,
-            style: style_summermeadow2023_12_0,
+            dataVar: 'json_summermeadow2023_13',
+            layerName: 'layer_summermeadow2023_13',
+            pane: 'pane_summermeadow2023_13',
+            onEachFeature: pop_summermeadow2023_13,
+            style: style_summermeadow2023_13_0,
         });
-        bounds_group.addLayer(layer_summermeadow2023_12);
-        map.addLayer(layer_summermeadow2023_12);
+        bounds_group.addLayer(layer_summermeadow2023_13);
+        map.addLayer(layer_summermeadow2023_13);
         setBounds();
         var i = 0;
         layer_TeaselsArea_1.eachLayer(function(layer) {
@@ -742,12 +782,12 @@
               i++;
         });
         var i = 0;
-        layer_warmemorial_3.eachLayer(function(layer) {
+        layer_warmemorial_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 5pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_warmemorial_3'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 5pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_warmemorial_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -755,12 +795,12 @@
               i++;
         });
         var i = 0;
-        layer_Graves_4.eachLayer(function(layer) {
+        layer_Graves_5.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 3pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Graves_4'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 3pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Graves_5'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -768,12 +808,12 @@
               i++;
         });
         var i = 0;
-        layer_vassa_5.eachLayer(function(layer) {
+        layer_vassa_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_vassa_5_eval_expression(context) !== null?String('<div style="color: #000000; font-size: 3pt; font-weight: bold; font-family: \'Palatino\', sans-serif;">' + exp_label_vassa_5_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vassa_5'});
+            layer.bindTooltip((exp_label_vassa_6_eval_expression(context) !== null?String('<div style="color: #000000; font-size: 3pt; font-weight: bold; font-family: \'Palatino\', sans-serif;">' + exp_label_vassa_6_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vassa_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -781,12 +821,12 @@
               i++;
         });
         var i = 0;
-        layer_Trees_6.eachLayer(function(layer) {
+        layer_Trees_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 3pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Trees_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 3pt; font-family: \'.AppleSystemUIFont\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Trees_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -794,12 +834,12 @@
               i++;
         });
         var i = 0;
-        layer_ShadedUncutArea_7.eachLayer(function(layer) {
+        layer_ShadedUncutArea_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ShadedUncutArea_7'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ShadedUncutArea_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -807,12 +847,12 @@
               i++;
         });
         var i = 0;
-        layer_springmeadow_8.eachLayer(function(layer) {
+        layer_springmeadow_9.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_springmeadow_8'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_springmeadow_9'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -820,12 +860,12 @@
               i++;
         });
         var i = 0;
-        layer_CompostArea_10.eachLayer(function(layer) {
+        layer_CompostArea_11.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CompostArea_10'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CompostArea_11'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -833,27 +873,27 @@
               i++;
         });
         var i = 0;
-        layer_summermeadow2023_12.eachLayer(function(layer) {
+        layer_summermeadow2023_13.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_summermeadow2023_12'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_summermeadow2023_13'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_3,layer_Graves_4,layer_vassa_5,layer_Trees_6,layer_ShadedUncutArea_7,layer_springmeadow_8,layer_mainpath_9,layer_CompostArea_10,layer_summermeadow2023_12]);
+        resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
         map.on("zoomend", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_3,layer_Graves_4,layer_vassa_5,layer_Trees_6,layer_ShadedUncutArea_7,layer_springmeadow_8,layer_mainpath_9,layer_CompostArea_10,layer_summermeadow2023_12]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_3,layer_Graves_4,layer_vassa_5,layer_Trees_6,layer_ShadedUncutArea_7,layer_springmeadow_8,layer_mainpath_9,layer_CompostArea_10,layer_summermeadow2023_12]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_3,layer_Graves_4,layer_vassa_5,layer_Trees_6,layer_ShadedUncutArea_7,layer_springmeadow_8,layer_mainpath_9,layer_CompostArea_10,layer_summermeadow2023_12]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
         });
         </script>
     </body>
