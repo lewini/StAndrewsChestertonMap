@@ -754,17 +754,3 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
-
-
-
-function exp_label_vassa_6_eval_expression(context) {
-    // name
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return feature.properties['name'] ;
-    } else {
-        return feature['name'] ;
-    }
-}

@@ -42,7 +42,8 @@
         <script src="data/mainpath_10.js"></script>
         <script src="data/CompostArea_11.js"></script>
         <script src="data/churchstborder_12.js"></script>
-        <script src="data/summermeadow2023_13.js"></script>
+        <script src="data/bicyclerack_13.js"></script>
+        <script src="data/summermeadow2023_14.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -51,7 +52,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[52.214692300657305,0.1379534759480474],[52.21629781072013,0.1411900410499343]]);
+        }).fitBounds([[52.21527023849721,0.1385715482800069],[52.21607299033784,0.140311640030842]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -206,7 +207,7 @@
                 lineJoin: 'round',
                 weight: 3.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Path_3');
@@ -214,7 +215,7 @@
         map.getPane('pane_Path_3').style['mix-blend-mode'] = 'normal';
         var layer_Path_3 = new L.geoJson(json_Path_3, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Path_3',
             layerName: 'layer_Path_3',
             pane: 'pane_Path_3',
@@ -238,10 +239,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Mowing'] !== null ? autolinker.link(feature.properties['Mowing'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Mowing</th>\
+                        <td>' + (feature.properties['Mowing'] !== null ? autolinker.link(feature.properties['Mowing'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -291,7 +294,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -344,10 +348,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['hyperlink'] !== null ? autolinker.link(feature.properties['hyperlink'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">hyperlink</th>\
+                        <td>' + (feature.properties['hyperlink'] !== null ? autolinker.link(feature.properties['hyperlink'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -360,7 +366,7 @@
         rotationOrigin: 'center center',
         icon: L.icon({
             iconUrl: 'markers/religion=christian.svg',
-            iconSize: [26.599999999999998, 26.599999999999998]
+            iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
@@ -384,7 +390,6 @@
             },
         });
         bounds_group.addLayer(layer_vassa_6);
-        map.addLayer(layer_vassa_6);
         function pop_Trees_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -616,7 +621,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -665,8 +671,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">id</th>\
-                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mowing</th>\
+                        <td>' + (feature.properties['Mowing'] !== null ? autolinker.link(feature.properties['Mowing'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -675,13 +685,6 @@
         function style_churchstborder_12_0() {
             return {
                 pane: 'pane_churchstborder_12',
-                opacity: 1,
-                color: 'rgba(72,123,182,1.0)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'round',
-                weight: 3.0,
-                fillOpacity: 0,
                 interactive: true,
             }
         }
@@ -699,7 +702,60 @@
         });
         bounds_group.addLayer(layer_churchstborder_12);
         map.addLayer(layer_churchstborder_12);
-        function pop_summermeadow2023_13(feature, layer) {
+        function pop_bicyclerack_13(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_bicyclerack_13_0() {
+            return {
+                pane: 'pane_bicyclerack_13',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/shopping_bicycle.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_bicyclerack_13');
+        map.getPane('pane_bicyclerack_13').style.zIndex = 413;
+        map.getPane('pane_bicyclerack_13').style['mix-blend-mode'] = 'normal';
+        var layer_bicyclerack_13 = new L.geoJson(json_bicyclerack_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_bicyclerack_13',
+            layerName: 'layer_bicyclerack_13',
+            pane: 'pane_bicyclerack_13',
+            onEachFeature: pop_bicyclerack_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_bicyclerack_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_bicyclerack_13);
+        map.addLayer(layer_bicyclerack_13);
+        function pop_summermeadow2023_14(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -725,9 +781,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_summermeadow2023_13_0() {
+        function style_summermeadow2023_14_0() {
             return {
-                pane: 'pane_summermeadow2023_13',
+                pane: 'pane_summermeadow2023_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -740,20 +796,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_summermeadow2023_13');
-        map.getPane('pane_summermeadow2023_13').style.zIndex = 413;
-        map.getPane('pane_summermeadow2023_13').style['mix-blend-mode'] = 'normal';
-        var layer_summermeadow2023_13 = new L.geoJson(json_summermeadow2023_13, {
+        map.createPane('pane_summermeadow2023_14');
+        map.getPane('pane_summermeadow2023_14').style.zIndex = 414;
+        map.getPane('pane_summermeadow2023_14').style['mix-blend-mode'] = 'normal';
+        var layer_summermeadow2023_14 = new L.geoJson(json_summermeadow2023_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_summermeadow2023_13',
-            layerName: 'layer_summermeadow2023_13',
-            pane: 'pane_summermeadow2023_13',
-            onEachFeature: pop_summermeadow2023_13,
-            style: style_summermeadow2023_13_0,
+            dataVar: 'json_summermeadow2023_14',
+            layerName: 'layer_summermeadow2023_14',
+            pane: 'pane_summermeadow2023_14',
+            onEachFeature: pop_summermeadow2023_14,
+            style: style_summermeadow2023_14_0,
         });
-        bounds_group.addLayer(layer_summermeadow2023_13);
-        map.addLayer(layer_summermeadow2023_13);
+        bounds_group.addLayer(layer_summermeadow2023_14);
+        map.addLayer(layer_summermeadow2023_14);
         setBounds();
         var i = 0;
         layer_TeaselsArea_1.eachLayer(function(layer) {
@@ -775,6 +831,19 @@
                 variables: {}
             };
             layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_wimbledon_2'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Path_3.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['q2wHide_Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['q2wHide_Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Path_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -813,7 +882,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_vassa_6_eval_expression(context) !== null?String('<div style="color: #000000; font-size: 3pt; font-weight: bold; font-family: \'Palatino\', sans-serif;">' + exp_label_vassa_6_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vassa_6'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 3pt; font-weight: bold; font-family: \'Palatino\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vassa_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -873,27 +942,27 @@
               i++;
         });
         var i = 0;
-        layer_summermeadow2023_13.eachLayer(function(layer) {
+        layer_summermeadow2023_14.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_summermeadow2023_13'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Helvetica\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_summermeadow2023_14'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
+        resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_Path_3,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_14]);
         map.on("zoomend", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_Path_3,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_14]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_Path_3,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_14]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_13]);
+            resetLabels([layer_TeaselsArea_1,layer_wimbledon_2,layer_Path_3,layer_warmemorial_4,layer_Graves_5,layer_vassa_6,layer_Trees_7,layer_ShadedUncutArea_8,layer_springmeadow_9,layer_mainpath_10,layer_CompostArea_11,layer_summermeadow2023_14]);
         });
         </script>
     </body>
